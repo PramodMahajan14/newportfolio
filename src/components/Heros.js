@@ -22,7 +22,7 @@ const Heros = () => {
           Pramod Mahajan
         </h1>
         <p className="text-md  lg:text-xl bg-gradient-to-r from-pink-200 via-slate-500 to-purple-500 bg-clip-text  tracking-tight text-transparent">
-          MERN Stack | FrontEnd Developer
+          Full Stack | FrontEnd Developer
         </p>
         <p>🚀</p>
         <p className="py-1 my-6 md:w-1/2 space-x-4">{Summary}</p>

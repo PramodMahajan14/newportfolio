@@ -30,8 +30,8 @@ const About = () => {
         <p className="bg-gradient-to-r from-cyan-400 via-slate-500 to-neutral-500 bg-clip-text  tracking-tight text-transparent">
           GET TO KNOW ME
         </p>
-        <p className="my-2  md:w-3/5">{aboutme[0].about}</p>
-        <p className="my-2 md:w-3/5">{aboutme[1].about}</p>
+        <p className="my-2  sm:w-3/5 md:1/2">{aboutme[0].about}</p>
+        <p className="my-2 sm:w-3/5 md:1/2">{aboutme[1].about}</p>
         <button className="px-4 py-2 my-10 border border-neutral-400 rounded-2xl dark:border-[#4FC3F7]">
           <a href="../Assets/Pramod Mahajan-resume.pdf"> Download Resume</a>
         </button>
