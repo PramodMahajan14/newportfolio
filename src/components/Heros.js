@@ -8,9 +8,8 @@ import { motion } from "framer-motion";
 const Heros = () => {
   return (
     <div className="py-10 pt-10 border-b lg:mb-32 px-2 border-neutral-200   dark:text-white relative h-1/2 w-full ">
-      {/* / */}
       <div className="absolute bottom-0 left-0 right-0 top-0  bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-      {/* </div> */}
+
       <div className="flex flex-col items-center text-center justify-center m-auto h-1/3">
         <div class="flex items-center gap-4 z-20">
           <img
@@ -25,7 +24,7 @@ const Heros = () => {
         <p className="text-md  lg:text-xl bg-gradient-to-r from-pink-200 via-slate-500 to-purple-500 bg-clip-text  tracking-tight text-transparent">
           MERN Stack | FrontEnd Developer
         </p>
-        🚀
+        <p>🚀</p>
         <p className="py-1 my-6 md:w-1/2 space-x-4">{Summary}</p>
         <button className="my-2 px-4 py-1 cursor-pointer border border-black rounded-2xl hover:border-purple-700 dark:border-[#4FC3F7]">
           Contact Me

@@ -2,6 +2,7 @@ import React from "react";
 import ProjectCard from "./Cards/ProjectCard";
 import projectimage from "../Assets/bluerocket.jpg";
 import youtubeimage from "../Assets/youtube.jpg";
+import dasboard from "../Assets/dashboard.jpg";
 const Projects = () => {
   return (
     <div className="py-5  text-center lg:mb-24 px-2 dark:text-white w-full">
@@ -18,6 +19,12 @@ const Projects = () => {
           tittle={"YoutubeClone"}
           subtittle={"My YouTube"}
           link={"https://"}
+        />
+        <ProjectCard
+          image={dasboard}
+          tittle={"DashBoard"}
+          subtittle={"Customer Monitor Tool"}
+          link={"https://mern-assigment.herokuapp.com/"}
         />
       </div>
     </div>

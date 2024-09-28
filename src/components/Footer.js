@@ -12,7 +12,7 @@ const Footer = () => {
           Get Touch In !
         </h1>
         <FormTouch />
-        <ul className="my-2 pt-2 w-full sm:hidden flex text-right space-x-3 border-t-2 border-neutral-200">
+        <ul className="my-2 pt-2 w-full sm:hidden flex text-right space-x-4 border-t-2 border-neutral-200">
           <li className=" text-[#b0b2c3] hover:text-neutral-600 dark:hover:text-white ">
             <FaLinkedinIn className="size-5 md:size-8 cursor-pointer" />
           </li>
@@ -25,10 +25,7 @@ const Footer = () => {
             </a>
           </li>
           <li className=" text-[#b0b2c3] hover:text-neutral-600 dark:hover:text-white">
-            <BiLogoGmail
-              className="size-5 md:size-8"
-              onClick={() => window.open("https://mail.google.com", "_blank")}
-            />
+            pramod.14mahajan@gmail.com
           </li>
         </ul>
       </div>

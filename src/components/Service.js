@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ServiceCard from "./Cards/ServiceCard";
 import { Services } from "../Helper";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -11,21 +11,56 @@ pdfjs.GlobalWorkerOptions.workerSrc =
 
 const pdffile = "../Assets/Pramod Mahajan-resume.pdf";
 const Service = () => {
-  const [currentIndex, setCurrntIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3);
+
+  const updateVisibleCards = () => {
+    const width = window.innerWidth;
+
+    if (width >= 1024) {
+      setVisibleCards(3);
+    } else if (width >= 768) {
+      setVisibleCards(2);
+    } else {
+      setVisibleCards(1);
+    }
+  };
+
   const preSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? Services.length - 1 : currentIndex - 1;
-    setCurrntIndex(newIndex);
+    setCurrentIndex(newIndex);
   };
+
   const nextSlide = () => {
-    const isLastIndex = currentIndex === Services.length - 1;
-    const newIndex = isLastIndex ? 0 : currentIndex + 1;
-    setCurrntIndex(newIndex);
+    const isLastSlide = currentIndex === Services.length - visibleCards;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
   };
+
+  const getVisibleServices = () => {
+    return Services.slice(currentIndex, currentIndex + visibleCards).concat(
+      Services.slice(
+        0,
+        Math.max(0, currentIndex + visibleCards - Services.length)
+      )
+    );
+  };
+
+  useEffect(() => {
+    updateVisibleCards();
+
+    window.addEventListener("resize", updateVisibleCards);
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleCards);
+    };
+  }, []);
+
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
   };
@@ -36,17 +71,29 @@ const Service = () => {
         <h1 className="font-semibold my-3 text-2xl md:text-4xl">What I Do</h1>
 
         <div className="max-w-[1000px] w-full  flex justify-center m-auto gap-2  px-3 relative  group">
-          <ServiceCard services={Services[currentIndex]} />
+          {getVisibleServices().map((service, index) => (
+            <ServiceCard key={index} services={service} />
+          ))}
 
           {/* Left Icon */}
-          <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5  rounded-full p-2 bg-slate-800 cursor-pointer">
+          <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%]  -left-2 p-1 md:left-2 md:p-2 rounded-full text-white bg-slate-800 cursor-pointer">
             <FaChevronLeft onClick={preSlide} />
           </div>
           {/* Right Icon */}
-          <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5  rounded-full p-2 bg-slate-800 cursor-pointer">
+          <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] -right-2 p-1 md:right-2 md:p-2 rounded-full text-white  bg-slate-800 cursor-pointer">
             <FaChevronRight onClick={nextSlide} />
           </div>
         </div>
+        <span className="flex items-center">
+          {Services.map((curr) => (
+            <p
+              key={curr.id}
+              className={`mx-2 rounded-full bg-white ${
+                curr.id === currentIndex + 1 ? "p-[6px]" : "p-1"
+              }`}
+            ></p>
+          ))}
+        </span>
       </div>
       <h1 className="text-xl md:text-2xl my-10">Certifications</h1>
       <motion.div

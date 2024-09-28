@@ -9,7 +9,7 @@ export const aboutme = [
   {
     id: 1,
     about:
-      "Hi Hello! I'm Pramod, a MERN stack  developer specializing in building responsive, dynamic, and user-friendly web applications. With expertise in MongoDB, Express.js, React, and Node.js, I create seamless and scalable full-stack solutions. From developing intuitive user interfaces to implementing efficient backend architectures, I'm passionate about delivering robust applications that provide a great user experience. My goal is to help businesses thrive in the digital landscape by bringing their ideas to life through clean code and innovative technology.",
+      "Hello! I'm Pramod, a MERN stack  developer specializing in building responsive, dynamic, and user-friendly web applications. With expertise in MongoDB, Express.js, React, and Node.js, I create seamless and scalable full-stack solutions. From developing intuitive user interfaces to implementing efficient backend architectures, I'm passionate about delivering robust applications that provide a great user experience. My goal is to help businesses thrive in the digital landscape by bringing their ideas to life through clean code and innovative technology.",
   },
   {
     id: 2,
